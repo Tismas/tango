@@ -1,0 +1,15 @@
+{% extends 'tango/base.html' %}
+{% load bootstrap_toolkit %}
+
+{% block title %}Tango - Add Category {% endblock %}
+{% block body_block %}
+	<div>
+		<form id="category_form" method="post" action="{% url 'add_category' %}">
+			<h2 class="form-signin-heading">Add a New Category</h2>
+			{% csrf_token %}
+			{{ form|as_bootstrap }}
+			<br>
+			<button class="btn btn-primary" type="submit" name="submit">Add Category</button>
+		</form>
+	</div>
+{% endblock %}

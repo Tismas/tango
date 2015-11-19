@@ -1,0 +1,13 @@
+{% extends 'tango/base.html' %}
+{% load bootstrap_toolkit %}
+
+{% block title %} Tango - Profile {% endblock %}
+{% block body_block %}
+	<h1>{{ user.username }}</h1>
+	<form method='POST' action='.'>
+		{% csrf_token %}
+		<input class="form-control" placeholder="{{ user.url }}" id="user_url" maxlength="254" name="user_url" type="url" autofocus=""/>
+		<br>
+		<button type="submit" class="btn btn-lg btn-primary">Submit</button>
+	</form>
+{% endblock %}

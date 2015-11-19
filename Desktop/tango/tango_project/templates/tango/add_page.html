@@ -1,0 +1,19 @@
+{% extends 'tango/base.html' %}
+{% load bootstrap_toolkit %}
+
+{% block title %} Tango - Add Page to {{ category }} {% endblock %}
+{% block body_block %}
+	<div>
+		{% if category %}
+			<form id="page_form" method="post" action="{{ url }}">
+				<h2 class="form-signin-heading"> Add a New Page to <a href="/tango/category/{{category.slug}}/"> {{ category.name }}</a></h2>
+				{% csrf_token %}
+				{{ form|as_bootstrap }}
+
+				<button class="btn btn-primary" type="submit" name="submit">Add Page</button>
+			</form>
+		{% else %}
+			<strong> Category does not exist.</strong>
+		{% endif %}
+	</div>
+{% endblock %}
