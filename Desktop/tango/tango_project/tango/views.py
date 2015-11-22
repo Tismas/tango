@@ -10,7 +10,7 @@ from datetime import datetime
 from django.shortcuts import redirect
 
 def homepage(request):
-    redirect('/tango/')
+    return redirect('/tango/')
 
 def index(request):
     cat_list = Category.objects.order_by('-likes')[:5]
