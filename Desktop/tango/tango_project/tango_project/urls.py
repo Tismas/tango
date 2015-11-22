@@ -18,9 +18,11 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from tango import urls
+from tango import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tango/', include('tango.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^$', views.homepage, name='homepage'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
